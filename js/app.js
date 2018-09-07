@@ -15,7 +15,7 @@ var thisRef;
 firebase.initializeApp(config);
 
 // Function to save file. Called when button is clicked
-function uploadFile(){
+function uploadFile() {
   file = $('#files').get(0).files[0];
   storageRef = firebase.storage().ref();
   
@@ -27,4 +27,24 @@ function uploadFile(){
     console.log('Uploaded file!');
   });
 
+  // I'm using a timer to fix an error where the url request is happening before the file has uploaded, and therefore, there is no url. 
+  // There is a better way to do this, but I don't know how yet
+  setTimeout(function() {
+
+    // Get request to get URL for uploaded file
+    thisRef.getDownloadURL().then(function(url) {
+      console.log(url);
+      downloadURL = url;
+    })
+
+    // Ajax call using get request url as source for detection
+    $.ajax({
+      url: 'https://apis.paralleldots.com/v3/facial_emotion?api_key=cnzJZhio5ZfrFxoo23hDZlpsK34EARxBnXCKDkFuqAQ&url=' + downloadURL,
+      method: 'POST'
+    }).then(function(response) {
+      console.log(response);
+    });
+  }, 2000);
+
 }
+
