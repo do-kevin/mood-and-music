@@ -6,20 +6,17 @@ var config = {
   databaseURL: "https://project-one-3e89e.firebaseio.com",
   storageBucket: "project-one-3e89e.appspot.com",
 };
-
+// I needed to make these variables global so we can access the url outside of the function later
 var downloadURL;
-var thisRef;
-var storageRef;
 var file;
+var storageRef;
+var thisRef;
 
 firebase.initializeApp(config);
 
 // Function to save file. Called when button is clicked
-function previewFile(){
-  var storage = firebase.storage();
-
+function uploadFile(){
   file = $('#files').get(0).files[0];
-  
   storageRef = firebase.storage().ref();
   
   // Dynamically set reference to the file name
