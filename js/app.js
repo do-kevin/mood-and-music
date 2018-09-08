@@ -20,30 +20,30 @@ firebase.initializeApp(config);
 
 // Function to save file. Called when button is clicked
 function uploadFile() {
-  // if (!file) {
+  if (!file !== file) {
     file = $('#files').get(0).files[0];
     storageRef = firebase.storage().ref();
     thisRef = storageRef.child(file.name);
 
     // Upload file to Firebase storage
-    thisRef.put(file).then(function(snapshot) {
+    thisRef.put(file).then(function (snapshot) {
       fileUploaded = !fileUploaded;
       console.log("File Uploaded");
       retrieveUrl();
     }).catch(err => {
       console.log(err);
     });
-  // }
+  }
 
   // Retrieve URL for uploaded file
   function retrieveUrl() {
     if (fileUploaded) {
-      thisRef.getDownloadURL().then(function(url) {
-      downloadURL = url;
-      fileUploaded = !fileUploaded;
-      urlRetrieved = !urlRetrieved;
-      console.log("URL Retrieved");
-      emotionDetect();
+      thisRef.getDownloadURL().then(function (url) {
+        downloadURL = url;
+        fileUploaded = !fileUploaded;
+        urlRetrieved = !urlRetrieved;
+        console.log("URL Retrieved");
+        emotionDetect();
       }).catch(err => {
         console.log(err);
       });
@@ -56,7 +56,7 @@ function uploadFile() {
       $.ajax({
         url: 'https://apis.paralleldots.com/v3/facial_emotion?api_key=3NRtY8Hw2sbkDv4xf0H000ol31TzrFOb3UdGx4BVq78&url=' + downloadURL,
         method: 'POST'
-      }).then(function(response) {
+      }).then(function (response) {
         console.log(response.facial_emotion[0].tag);
         mood = response.facial_emotion[0].tag;
         retrieveSong();
