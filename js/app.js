@@ -58,7 +58,7 @@ function uploadFile() {
         method: 'POST'
       }).then(function(response) {
         console.log(response.facial_emotion[0].tag);
-        mood = response.facial_emotion[0].tag
+        mood = response.facial_emotion[0].tag;
         retrieveSong();
       }).catch(err => {
         console.log(err);
@@ -114,7 +114,7 @@ function uploadFile() {
       method: "GET"
     }).then(function (response) {
       var database = response.tracks;
-      console.log(database)
+      console.log(database);
   
       var a = $("<audio controls autoplay>");
       var p = $('<p class="artistInfo">');
