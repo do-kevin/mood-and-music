@@ -4,7 +4,7 @@ var config = {
   apiKey: "AIzaSyDajmKcgfn5dnEGd1Vp8EprgLJNdVOG_AQ",
   authDomain: "project-one-3e89e.firebaseapp.com",
   databaseURL: "https://project-one-3e89e.firebaseio.com",
-  storageBucket: "project-one-3e89e.appspot.com",
+  storageBucket: "project-one-3e89e.appspot.com"
 };
 
 // I needed to make these variables global so we can access the url outside of the function later
@@ -75,7 +75,7 @@ function uploadFile() {
 
   var apikey = "apikey=NDU0ZjU2ZWMtMjVhMS00NmNlLWI3NWItYTdlNTc5ODdkMzNk";
   var trackID;
-  
+
   // Match mood to appropriate music choice
   function retrieveSong() {
     switch (mood) {
@@ -104,10 +104,10 @@ function uploadFile() {
         console.log('You are a robot with no emotions');
         break;
     }
-    
+
     // Update queryURL with appropriate trackID
     var queryURL = "https://api.napster.com/v2.2/tracks/" + trackID + "?" + apikey;
-  
+
     // Ajax that shit
     $.ajax({
       url: queryURL,
@@ -115,22 +115,22 @@ function uploadFile() {
     }).then(function (response) {
       var database = response.tracks;
       console.log(database);
-  
+
       var a = $("<audio controls autoplay>");
       var p = $('<p class="artistInfo">');
       var c = $('<p class="artistInfo">');
-  
+
       p.html(database[0].name + " by " + database[0].artistName);
       $(".preview").append(p);
-  
+
       a.attr("src", database[0].previewURL);
       $(".preview").attr('id', 'song').append(a);
-  
+
       c.html(database[0].albumName + " Album");
       $(".preview").append(c);
 
     });
 
   }
-  
+
 }
