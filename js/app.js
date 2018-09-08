@@ -90,7 +90,6 @@ function uploadFile() {
         break;
       case 'Surprise':
         trackID = "tra.41390755";
-        console.log('You are surprised');
         break;
       case 'Sad':
         trackID = "tra.2732140";
@@ -117,7 +116,7 @@ function uploadFile() {
       var database = response.tracks;
       console.log(database)
   
-      var a = $("<audio controls>");
+      var a = $("<audio controls autoplay>");
       var p = $('<p class="artistInfo">');
       var c = $('<p class="artistInfo">');
   
@@ -125,7 +124,7 @@ function uploadFile() {
       $(".preview").append(p);
   
       a.attr("src", database[0].previewURL);
-      $(".preview").append(a);
+      $(".preview").attr('id', 'song').append(a);
   
       c.html(database[0].albumName + " Album");
       $(".preview").append(c);
