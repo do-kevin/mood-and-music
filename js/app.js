@@ -1,5 +1,67 @@
+//=========================================== Webcam (WebRTC)====================================
+function webcam() {
+  var video = document.querySelector("#video"),
+    canvas = document.querySelector("#canvas"),
+    context = canvas.getContext("2d"),
+    photo = document.querySelector("#photo");
 
-// Initialize Firebase
+  var constraints = {
+    audio: false,
+    video: {
+      width: 320,
+      height: 240
+    }
+  };
+
+  navigator.mediaDevices.getUserMedia(constraints)
+    .then(function (mediaStream) {
+      var video = document.querySelector('video');
+      video.srcObject = mediaStream;
+      video.onloadedmetadata = function (e) {
+        video.play();
+      };
+    }).catch(function (err) {
+      // Old browser support?
+      navigator.getMedia = navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia || // Mozilla
+        navigator.msGetUsermedia; // Microsoft IE
+
+      navigator.getMedia({
+        video: true,
+        audio: false // No need to capture audio
+      }, function (stream) {
+
+        video.srcObject = stream;
+        video.play();
+      }, function (err) {
+        // An error occurred. Insert error code here.
+      });
+    });
+
+
+
+  document.querySelector("#capture").addEventListener("click", function () {
+    //What I want to draw on
+    // (video, IDK, IDK, width, height)
+    context.drawImage(video, 0, 0, 320, 240);
+
+    // Grab from the canvas and placing into the photo src, which is the link and where the picture is saved.
+    // The src of the file is transferred to "data:image/png;base64[picture's code]"
+    // For example, take a picture. Right-click on the pic and you can see its address
+    //              bar when you open it in a new tab; however, you cannot copy its image address.
+    photo.setAttribute("src", canvas.toDataURL("image/jpeg", 1.0));
+
+    //========================== Forces image to be downloaded ==========================//
+    // var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    // window.location.href = image;
+  });
+};
+
+webcam();
+
+
+//==============================================Initialize Firebase==================================================
 var config = {
   apiKey: "AIzaSyDajmKcgfn5dnEGd1Vp8EprgLJNdVOG_AQ",
   authDomain: "project-one-3e89e.firebaseapp.com",
@@ -20,43 +82,44 @@ firebase.initializeApp(config);
 
 // Function to save file. Called when button is clicked
 function uploadFile() {
-  // if (!file) {
+  if (!file !== file) {
     file = $('#files').get(0).files[0];
     storageRef = firebase.storage().ref();
     thisRef = storageRef.child(file.name);
 
     // Upload file to Firebase storage
-    thisRef.put(file).then(function(snapshot) {
+    thisRef.put(file).then(function (snapshot) {
       fileUploaded = !fileUploaded;
       console.log("File Uploaded");
       retrieveUrl();
     }).catch(err => {
       console.log(err);
     });
-  // }
+  }
 
   // Retrieve URL for uploaded file
   function retrieveUrl() {
     if (fileUploaded) {
-      thisRef.getDownloadURL().then(function(url) {
-      downloadURL = url;
-      fileUploaded = !fileUploaded;
-      urlRetrieved = !urlRetrieved;
-      console.log("URL Retrieved");
-      emotionDetect();
+      thisRef.getDownloadURL().then(function (url) {
+        downloadURL = url;
+        fileUploaded = !fileUploaded;
+        urlRetrieved = !urlRetrieved;
+        console.log("URL Retrieved");
+        emotionDetect();
       }).catch(err => {
         console.log(err);
       });
     }
   }
 
+//======================================== ParallelDots ===========================================
   // Ajax call using url as source for detection
   function emotionDetect() {
     if (urlRetrieved) {
       $.ajax({
         url: 'https://apis.paralleldots.com/v3/facial_emotion?api_key=3NRtY8Hw2sbkDv4xf0H000ol31TzrFOb3UdGx4BVq78&url=' + downloadURL,
         method: 'POST'
-      }).then(function(response) {
+      }).then(function (response) {
         console.log(response.facial_emotion[0].tag);
         mood = response.facial_emotion[0].tag;
         retrieveSong();
@@ -67,12 +130,7 @@ function uploadFile() {
     }
   }
 
-  const tracksTemplateSource = document.getElementById('tracks-template').innerHTML;
-
-  // Not sure if these two lines are needed because the variables are never read
-  const tracksTemplate = Handlebars.compile(tracksTemplateSource);
-  const $tracks = $('#tracks-container');
-
+//======================================= Napster ==============================================
   var apikey = "apikey=NDU0ZjU2ZWMtMjVhMS00NmNlLWI3NWItYTdlNTc5ODdkMzNk";
   var trackID;
 
