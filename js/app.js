@@ -82,8 +82,8 @@ firebase.initializeApp(config);
 
 // Function to save file. Called when button is clicked
 function uploadFile() {
-  if (!file !== file) {
-    file = $('#files').get(0).files[0];
+  file = $('#files').get(0).files[0];
+  if (file !== undefined) {
     storageRef = firebase.storage().ref();
     thisRef = storageRef.child(file.name);
 
