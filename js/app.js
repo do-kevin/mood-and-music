@@ -117,7 +117,7 @@ function uploadFile() {
   function emotionDetect() {
     if (urlRetrieved) {
       $.ajax({
-        url: 'https://apis.paralleldots.com/v3/facial_emotion?api_key=cnzJZhio5ZfrFxoo23hDZlpsK34EARxBnXCKDkFuqAQ&url=' + downloadURL,
+        url: 'https://apis.paralleldots.com/v3/facial_emotion?api_key=n3yLuB3RxgDcj5DYAxaxtqxbNqtszhif3dvP4wtrtYE&url=' + downloadURL,
         method: 'POST'
       }).then(function (response) {
         if (response.output === 'No face detected.') {
