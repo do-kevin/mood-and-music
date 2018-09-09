@@ -96,13 +96,11 @@ function uploadFile() {
         console.log(err);
       });
     }
-    
-    $("#files").on("click", uploadFile);
 
   // Retrieve URL for uploaded file
   function retrieveUrl() {
     if (fileUploaded) {
-      thisRef.getDownloadURL().then(function (url) {
+      thisRef.getDownloadURL().then(function(url) {
         downloadURL = url;
         fileUploaded = !fileUploaded;
         urlRetrieved = !urlRetrieved;
@@ -179,7 +177,7 @@ function uploadFile() {
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function (response) {
+    }).then(function(response) {
       var database = response.tracks;
       console.log(database);
 
