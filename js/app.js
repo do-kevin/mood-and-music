@@ -35,7 +35,7 @@ function webcam() {
         video.srcObject = stream;
         video.play();
       }, function (err) {
-        // An error occurred. Insert error code here.
+        console.log(err);
       });
     });
 
