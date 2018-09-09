@@ -96,6 +96,8 @@ function uploadFile() {
         console.log(err);
       });
     }
+    
+    $("#files").on("click", uploadFile);
 
   // Retrieve URL for uploaded file
   function retrieveUrl() {
@@ -182,8 +184,8 @@ function uploadFile() {
       console.log(database);
 
       var a = $("<audio controls autoplay>");
-      var p = $('<p class="artistInfo">');
-      var c = $('<p class="artistInfo">');
+      var p = $('<p class="artistInfo center-align white-text">');
+      var c = $('<p class="artistInfo center-align white-text">');
 
       // Empty audio controls before every request so we don't get duplicates
       $('.preview').empty();
