@@ -6,7 +6,7 @@
 
 ## Instructions:
 * Use your webcam to take a picture. Right-click on the snapshot and choose `save image as...` to download your image to your computer. 
-* Upload your headshot. The app will take jpeg and png.
+* Upload your headshot. The app will take `.jpg`, `.jpeg`, `.png`, `.bmp` and `.tiff` image files. 
 
 ---------------
 ## [Trello](https://trello.com/b/aIbXUAJ1/project-one)
