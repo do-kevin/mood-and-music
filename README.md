@@ -19,6 +19,7 @@
 ---------------
 
 ### The technologies we used to make this project:
+- Materialize
 - WebRTC API
 - Firebase
 - Parallel Dots AI API
