@@ -6,13 +6,56 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Chango" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <title>Project One</title>
 </head>
 
-<body>
+<body class="teal lighten-4">
 
-  <input type="file" onchange="uploadFile()" id="files" name="files[]">
+  <div class="navbar-fixed">
+    <nav class="teal accent-4">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">mood-&-music</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#">Aidan</a></li>
+          <li><a href="#">Josephson</a></li>
+          <li><a href="#">Kevin</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col m2"></div>
+      <div class="col m8">
+        <div id="photobooth" class="teal accent-3">
+          <div class="camContainer teal accent-1">
+            <!---================== Webcam ========================-->
+            <video id="video" width="320" height="400" muted="muted">
+              <!-- html5 autoplay (Google Chrome) -->
+            </video>
+          </div>
+          <div class="snapContainer teal accent-1">
+            <!--=============== Where picture is taken =============-->
+            <canvas id="canvas" width="320" height="400"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col m2"></div>
+    </div>
+    <div class="row">
+      <div class="col m2"></div>
+      <div class="col m8 center-align">
+        <a href="#" id="capture" class="center-align waves-effect waves-light btn"><span>Take Photo</span></a>
+        <a href="#" id="upload" class="center-align waves-effect waves-light btn"><span>Upload Photo</span></a>
+        <input type="file" onchange="uploadFile()" id="files" name="files[]">
+      </div>
+      <div class="col m2"></div>
+    </div>
+  </div>
 
   <div class="preview"></div>
 
@@ -31,7 +74,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-storage.js"></script>
-  <script src="js/handlebars-v4.0.12.js"></script>  
+  <script src="js/handlebars-v4.0.12.js"></script>
   <script src="js/app.js"></script>
 </body>
 
