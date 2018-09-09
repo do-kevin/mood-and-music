@@ -56,7 +56,7 @@ function webcam() {
     // var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
     // window.location.href = image;
   });
-};
+}
 
 webcam();
 
