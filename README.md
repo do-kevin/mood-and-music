@@ -1,24 +1,24 @@
-#[Name-in-Progress]
+# [Name-in-Progress]
 
-####Project-One
+#### Project-One
 
 ---------------
 
-##Instructions:
+## Instructions:
 * Use your webcam to take a picture. Right-click on the snapshot and choose `save image as` to download your image to your computer. 
 * Upload your headshot. The app will take jpeg and png.
 
 ---------------
-##[Trello](https://trello.com/b/aIbXUAJ1/project-one)
+## [Trello](https://trello.com/b/aIbXUAJ1/project-one)
 
-##Team Members
+## Team Members
 * [Aidan Nemeth](https://github.com/ironaidan)
 * [Josephson Reynoso](https://github.com/JSR88431)
 * [Kevin Do](https://github.com/do-kevin)
 
 ---------------
 
-###The technologies we used to make this project:
+### The technologies we used to make this project:
 - WebRTC API
 - Firebase
 - Parallel Dots AI API
