@@ -7,46 +7,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Chango" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Project One</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Mood and Music</title>
 </head>
 
 <body class="teal lighten-4">
-
+  <!-- NAVIGATION -->
   <div class="navbar-fixed">
     <nav class="teal accent-4">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">mood-&-music</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Aidan</a></li>
-          <li><a href="#">Josephson</a></li>
-          <li><a href="#">Kevin</a></li>
-        </ul>
+        <a href="https://github.com/do-kevin/Project-One" class="brand-logo show-on-medium-and-up hide-on-small-only"><i
+            class="icon"><img src="images/GitHub logo.png" alt="github icon" id="github-icon"></i>docs repo</a>
+        <a href="https://github.com/do-kevin/Project-One" class="brand-logo show-on-small hide-on-med-and-up"><i class="icon"><img
+              src="images/GitHub logo.png" alt="github icon" id="github-icon"></i></a>
+        <!-- <h6 class="show-on-small hide-on-med-and-up"><a href="#" class="brand-logo center">docs repo</a></h6> -->
       </div>
     </nav>
   </div>
+  <!-- LOGO TITLE -->
+  <div class="container" id="logo">
+    <div class="row">
+      <div class="col m12">
+        <h2 class="white-text center-align show-on-medium-and-up hide-on-small-only">mood-&-music</h2>
+      </div>
+    </div>
+  </div>
 
-
-  <div class="container">
+  <!-- MAIN PHOTOBOOTH -->
+  <div class="container" id="main">
     <div class="row">
       <div class="col m2"></div>
       <div class="col m8">
-        <div id="photobooth" class="teal accent-3">
-          <div class="camContainer teal accent-1">
-            <!---================== Webcam ========================-->
-            <video id="video" width="320" height="400" muted="muted">
-              <!-- html5 autoplay (Google Chrome) -->
-            </video>
-          </div>
-          <div class="snapContainer teal accent-1">
-            <!--=============== Where picture is taken =============-->
-            <canvas id="canvas" width="320" height="400"></canvas>
-            <img id="photo" src="" alt="">
+        <div class="row">
+          <div id="photobooth" class="card teal accent-3">
+            <div class="col m6">
+              <!---================== Webcam ========================-->
+              <video id="video" width="320" height="240" muted="muted" class="responsive-video">
+                <!-- html5 autoplay (Google Chrome) -->
+              </video>
+            </div>
+            <div class="col m6">
+              <!--=============== Where picture is taken =============-->
+              <canvas id="canvas" width="320" height="240" class="responsive"></canvas>
+              <img id="photo" src="assets/images/placeholder.gif" class="responsive-img" alt="">
+            </div>
           </div>
         </div>
       </div>
       <div class="col m2"></div>
     </div>
+    <!-- BUTTONS FOR TAKING PHOTO AND UPLOAD -->
     <div class="row">
       <div class="col m2"></div>
       <div class="col m8 center-align">
@@ -57,8 +67,34 @@
       <div class="col m2"></div>
     </div>
   </div>
+  <!-- INSTRUCTIONS -->
+  <div class="container" id="box2">
+    <div class="row">
+      <div class="col m2"></div>
+      <div class="col m8">
+        <div class="card teal accent-3" id=instructions>
+          INSTRUCTIONS!!!
+        </div>
+      </div>
+      <div class="col m2"></div>
+    </div>
+  </div>
+<!-- TRACK LIST -->
+  <div class="container" id="box3">
+    <div class="row">
+      <div class="col m2"></div>
+      <div class="col m8">
+        <div class="card teal accent-3" id=trackList>
+          TRACK LIST!!
+        </div>
+      </div>
+      <div class="col m2"></div>
+    </div>
+  </div>
 
-  <div class="preview"></div>
+
+
+
 
   <script id="tracks-template" type="text/x-handlebars-template">
     {{#each tracks}}
