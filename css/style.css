@@ -39,6 +39,7 @@
 
 
 .btn{
+    font-family: 'Ubuntu', sans-serif;
     margin: 10px;
 }
 
@@ -49,17 +50,17 @@
 }
 
 h2{
-    font-family: 'Chango';
+    font-family: 'Libre Barcode 128 Text', cursive;
     font-style: normal;
     font-weight: 400;
-    font-size: 48px;
+    font-size: 100px;
     margin-top: 60px; 
 }
 
 
 
 a, p{
-    font-family: 'Calibri'; 
+    font-family: 'Ubuntu', sans-serif; 
 }
 
 #photobooth{
