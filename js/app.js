@@ -83,19 +83,19 @@ firebase.initializeApp(config);
 // Function to save file. Called when button is clicked
 function uploadFile() {
   file = $('#files').get(0).files[0];
-  if (file !== undefined) {
-    storageRef = firebase.storage().ref();
-    thisRef = storageRef.child(file.name);
+    if (file !== undefined) {
+      storageRef = firebase.storage().ref();
+      thisRef = storageRef.child(file.name);
 
-    // Upload file to Firebase storage
-    thisRef.put(file).then(function (snapshot) {
-      fileUploaded = !fileUploaded;
-      console.log("File Uploaded");
-      retrieveUrl();
-    }).catch(err => {
-      console.log(err);
-    });
-  }
+      // Upload file to Firebase storage
+      thisRef.put(file).then(function (snapshot) {
+        fileUploaded = !fileUploaded;
+        console.log("File Uploaded");
+        retrieveUrl();
+      }).catch(err => {
+        console.log(err);
+      });
+    }
 
   // Retrieve URL for uploaded file
   function retrieveUrl() {
@@ -177,6 +177,9 @@ function uploadFile() {
       var a = $("<audio controls autoplay>");
       var p = $('<p class="artistInfo">');
       var c = $('<p class="artistInfo">');
+
+      // Empty audio controls before every request so we don't get duplicates
+      $('.preview').empty();
 
       p.html(database[0].name + " by " + database[0].artistName);
       $(".preview").append(p);
