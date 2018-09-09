@@ -117,14 +117,16 @@ function uploadFile() {
   function emotionDetect() {
     if (urlRetrieved) {
       $.ajax({
-        url: 'https://apis.paralleldots.com/v3/facial_emotion?api_key=3NRtY8Hw2sbkDv4xf0H000ol31TzrFOb3UdGx4BVq78&url=' + downloadURL,
+        url: 'https://apis.paralleldots.com/v3/facial_emotion?api_key=cnzJZhio5ZfrFxoo23hDZlpsK34EARxBnXCKDkFuqAQ&url=' + downloadURL,
         method: 'POST'
       }).then(function (response) {
-        console.log(response.facial_emotion[0].tag);
-        mood = response.facial_emotion[0].tag;
-        retrieveSong();
-      }).catch(err => {
-        console.log(err);
+        if (response.output === 'No face detected.') {
+          console.log('You are probably a robot with no emotions');
+        } else {
+          console.log(response.facial_emotion[0].tag);
+          mood = response.facial_emotion[0].tag;
+          retrieveSong();
+        }
       });
       urlRetrieved = !urlRetrieved;
     }
