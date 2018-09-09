@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Chango" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link href="http://allfont.net/allfont.css?fonts=space-age" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Mood and Music</title>
 </head>
@@ -62,6 +65,9 @@
       <div class="col m8 center-align">
         <a href="#" id="capture" class="center-align waves-effect waves-light btn"><span>Take Photo</span></a>
         
+      
+        
+        
         <!-- <form action="#">
             <div class="file-field input-field">
               <div class="btn">
@@ -73,8 +79,12 @@
               </div>
             </div>
           </form> -->
+          <input type="file" onchange="uploadFile()" id="files" name="files[]" class="inputFile hide">
+          <label for="files" class="center-align waves-effect waves-light btn">Upload Photo</label>
 
-        <input type="file" onchange="uploadFile()" id="files" name="files[]" class="center-align waves-effect waves-light btn">
+
+          
+         
 
       </div>
       <div class="col m2"></div>
@@ -85,30 +95,29 @@
     <div class="row">
       <div class="col m2"></div>
       <div class="col m8">
-        <div class="card teal accent-3" id="instructions">
-          <h4>How to use</h4>
-
-
-          <ul>
-            <li>Press <em>allow</em> if you want the browser to access your webcam.</li><br>
-            <li>Right-click on the photo taken and choose <i>Save image as...</i> to download the photo to your
-              desktop. </li><br>
-            <li>You may either choose to upload the picture you've taken or upload another image file. To do this,
-              press <i>Choose File</i> and confirm.</li>
-          </ul>
+        <div class="card teal accent-3 center-align white-text" id="instructions">
+          <div class="card-content">
+           <span class="card-title">How to use</span>
+            <p>Press <em>allow</em> if you want the browser to access your webcam.</p><br>
+            <p>Right-click on the photo taken and choose <i>Save image as...</i> to download the photo to your
+              desktop. </p><br>
+            <p>You may either choose to upload the picture you've taken or upload another image file. To do this,
+              press <i>Choose File</i> and confirm.</p>
+          </div>
+          
 
         </div>
       </div>
       <div class="col m2"></div>
     </div>
   </div>
-  <!-- TRACK LIST -->
+  <!-- TRACK LIST BOX -->
   <div class="container" id="box3">
     <div class="row">
       <div class="col m2"></div>
       <div class="col m8">
-        <div class="card teal accent-3 preview" id="trackList">
-          <!-- TRACK LIST!! -->
+        <div class="card teal accent-3 preview center-align">
+          <!-- TRACK LIST from JS FILE!! -->
         </div>
       </div>
       <div class="col m2"></div>

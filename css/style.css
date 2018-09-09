@@ -39,30 +39,46 @@
 
 
 .btn{
+    font-family: 'Ubuntu', sans-serif;
     margin: 10px;
 }
 
 .brand-logo{
-    font-family: 'Chango', cursive;
+    font-family: 'Calibri';
     margin-left: 10px;
     color:white;
 }
 
 h2{
-    font-family: 'Chango', cursive;
+    font-family: 'Libre Barcode 128 Text', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100px;
     margin-top: 60px; 
 }
 
-a{
-    font-family: 'Chango', cursive; 
+
+
+a, p{
+    font-family: 'Ubuntu', sans-serif; 
 }
 
-#photobooth, #instructions{
+#photobooth{
     height: 250px;
 }
 
-#trackList{
-    height: 350px;
+#instructions{
+    height: 275px;
+}
+
+
+#song{
+    height: 150px;
+    margin: 0 auto;
+}
+
+.preview{
+    margin-top: 40px;
 }
 
 
