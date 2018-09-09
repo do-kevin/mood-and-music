@@ -49,7 +49,7 @@
             <div class="col m6">
               <!--=============== Where picture is taken =============-->
               <canvas id="canvas" width="320" height="240" class="responsive"></canvas>
-              <img id="photo" src="assets/images/placeholder.gif" class="responsive-img" alt="">
+              <img id="photo" src="" class="responsive-img" alt="">
             </div>
           </div>
         </div>
@@ -61,8 +61,21 @@
       <div class="col m2"></div>
       <div class="col m8 center-align">
         <a href="#" id="capture" class="center-align waves-effect waves-light btn"><span>Take Photo</span></a>
-        <a href="#" id="upload" class="center-align waves-effect waves-light btn"><span>Upload Photo</span></a>
-        <input type="file" onchange="uploadFile()" id="files" name="files[]">
+        
+        <!-- <form action="#">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Upload Photo</span>
+                <input type="file" onchange="uploadFile()" id="files upload" name="files[]" class="center-align waves-effect waves-light btn">
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+              </div>
+            </div>
+          </form> -->
+
+        <input type="file" onchange="uploadFile()" id="files upload" name="files[]" class="center-align waves-effect waves-light btn">
+
       </div>
       <div class="col m2"></div>
     </div>
@@ -73,19 +86,29 @@
       <div class="col m2"></div>
       <div class="col m8">
         <div class="card teal accent-3" id=instructions>
-          INSTRUCTIONS!!!
+          <h4>How to use</h4>
+
+
+          <ul>
+            <li>Press <em>allow</em> if you want the browser to access your webcam.</li><br>
+            <li>Right-click on the photo taken and choose <i>Save image as...</i> to download the photo to your
+              desktop. </li><br>
+            <li>You may either choose to upload the picture you've taken or upload another image file. To do this,
+              press <i>Choose File</i> and confirm.</li>
+          </ul>
+
         </div>
       </div>
       <div class="col m2"></div>
     </div>
   </div>
-<!-- TRACK LIST -->
+  <!-- TRACK LIST -->
   <div class="container" id="box3">
     <div class="row">
       <div class="col m2"></div>
       <div class="col m8">
-        <div class="card teal accent-3" id=trackList>
-          TRACK LIST!!
+        <div class="card teal accent-3 preview" id=trackList>
+          <!-- TRACK LIST!! -->
         </div>
       </div>
       <div class="col m2"></div>

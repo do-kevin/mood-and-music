@@ -122,6 +122,11 @@ function uploadFile() {
       }).then(function (response) {
         if (response.output === 'No face detected.') {
           console.log('You are probably a robot with no emotions');
+          $(".preview").empty();
+
+          var e = $('<p class="errBox">');
+          $(".preview").append(e);
+          e.html("You are probably a robot with no emotions. Please upload another image file with a headshot and sufficient lighting.");
         } else {
           console.log(response.facial_emotion[0].tag);
           mood = response.facial_emotion[0].tag;
