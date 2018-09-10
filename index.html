@@ -6,6 +6,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
@@ -62,7 +63,7 @@
     <div class="row">
       <div class="col m2"></div>
       <div class="col m8 center-align">
-        <a href="#" id="capture" class="center-align amber darken-4 waves-effect waves-yellow btn"><span>Take Photo</span></a>
+        <a href="#" id="capture" class="center-align amber darken-4 waves-effect waves-yellow btn"><span><i class="material-icons" style="font-size: 40px">camera_alt</i></span></a>
 
         <!-- <form action="#">
             <div class="file-field input-field">
@@ -76,7 +77,7 @@
             </div>
           </form> -->
         <input type="file" onchange="uploadFile()" id="files" name="files[]" class="inputFile hide">
-        <label for="files" class="center-align amber darken-4 waves-effect waves-yellow btn">Upload Photo</label>
+        <label for="files" class="center-align amber darken-4 waves-effect waves-yellow btn"><i class="material-icons" style="font-size: 40px">file_upload</i></label>
       </div>
       <div class="col m2"></div>
     </div>
@@ -103,13 +104,13 @@
         <div class="card cyan lighten-3 center-align black-text" id="instructions">
           <div class="card-content">
             <span class="card-title">How to use</span>
-            <br>
+         
             <p>Press <em>allow</em> if you want the browser to access your webcam.</p><br>
             <p><em>Right-click</em> on the photo taken and choose <em>Save image as...</em> to download the photo to
               your
               desktop. </p><br>
             <p>You may either choose to upload the picture you've taken or upload another image file. To do this,
-              press <em>Choose File</em> and confirm.</p>
+              press <em><i class="material-icons" id="icon2">file_upload</i></em> and confirm.</p>
           </div>
 
 
