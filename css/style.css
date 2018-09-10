@@ -99,6 +99,7 @@ a, p{
 .preview{
     margin-top: 40px;
     border-radius: 25px;
+    display: none;
 }
 
 
