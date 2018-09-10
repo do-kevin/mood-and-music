@@ -2,23 +2,6 @@
     margin-top: 60px;
 }
 
-/* .camContainer {
-    width: 320px;
-    height:240px;
-    margin-top: 50px;
-    margin-left: 20px;
-    float: left;
-}
-
-.snapContainer {
-    width: 320px;
-    height: 240px;
-    margin-top: 50px;
-    margin-right: 20px;
-    float: right;
-} */
-
-
 #canvas {
     display: none;
     margin-top: 3px;
