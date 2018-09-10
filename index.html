@@ -6,18 +6,16 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Chango" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <link href="http://allfont.net/allfont.css?fonts=space-age" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Mood and Music</title>
 </head>
 
-<body class="teal lighten-4">
+<body>
   <!-- NAVIGATION -->
   <div class="navbar-fixed">
-    <nav class="teal accent-4">
+    <nav class="black">
       <div class="nav-wrapper">
         <a href="https://github.com/do-kevin/Project-One" class="brand-logo show-on-medium-and-up hide-on-small-only"><i
             class="icon"><img src="images/GitHub logo.png" alt="github icon" id="github-icon"></i>docs repo</a>
@@ -31,7 +29,7 @@
   <div class="container" id="logo">
     <div class="row">
       <div class="col m12">
-        <h2 class="white-text center-align show-on-medium-and-up hide-on-small-only">mood-&-music</h2>
+        <h2 class="black-text center-align show-on-medium-and-up hide-on-small-only">mood-&-music</h2>
       </div>
     </div>
   </div>
@@ -42,7 +40,7 @@
       <div class="col m2"></div>
       <div class="col m8">
         <div class="row">
-          <div id="photobooth" class="card teal accent-3">
+          <div id="photobooth" class="card deep-orange accent-3">
             <div class="col m6">
               <!---================== Webcam ========================-->
               <video id="video" width="320" height="240" muted="muted" class="responsive-video">
@@ -63,11 +61,8 @@
     <div class="row">
       <div class="col m2"></div>
       <div class="col m8 center-align">
-        <a href="#" id="capture" class="center-align waves-effect waves-light btn"><span>Take Photo</span></a>
-        
-      
-        
-        
+        <a href="#" id="capture" class="center-align amber darken-4 waves-effect waves-yellow btn"><span>Take Photo</span></a>
+
         <!-- <form action="#">
             <div class="file-field input-field">
               <div class="btn">
@@ -79,50 +74,49 @@
               </div>
             </div>
           </form> -->
-          <input type="file" onchange="uploadFile()" id="files" name="files[]" class="inputFile hide">
-          <label for="files" class="center-align waves-effect waves-light btn">Upload Photo</label>
-
-
-          
-         
-
+        <input type="file" onchange="uploadFile()" id="files" name="files[]" class="inputFile hide">
+        <label for="files" class="center-align amber darken-4 waves-effect waves-yellow btn">Upload Photo</label>
       </div>
       <div class="col m2"></div>
     </div>
   </div>
-  <!-- INSTRUCTIONS -->
-  <div class="container" id="box2">
-    <div class="row">
-      <div class="col m2"></div>
-      <div class="col m8">
-        <div class="card teal accent-3 center-align white-text" id="instructions">
-          <div class="card-content">
-           <span class="card-title">How to use</span>
-            <p>Press <em>allow</em> if you want the browser to access your webcam.</p><br>
-            <p>Right-click on the photo taken and choose <i>Save image as...</i> to download the photo to your
-              desktop. </p><br>
-            <p>You may either choose to upload the picture you've taken or upload another image file. To do this,
-              press <i>Choose File</i> and confirm.</p>
-          </div>
-          
 
-        </div>
-      </div>
-      <div class="col m2"></div>
-    </div>
-  </div>
   <!-- TRACK LIST BOX -->
   <div class="container" id="box3">
     <div class="row">
       <div class="col m2"></div>
       <div class="col m8">
-        <div class="card teal accent-3 preview center-align">
+        <div class="card indigo accent-3 preview center-align">
           <!-- TRACK LIST from JS FILE!! -->
         </div>
       </div>
       <div class="col m2"></div>
     </div>
   </div>
+
+  <!-- INSTRUCTIONS -->
+  <div class="container" id="box2">
+    <div class="row">
+      <div class="col m2"></div>
+      <div class="col m8">
+        <div class="card cyan lighten-3 center-align black-text" id="instructions">
+          <div class="card-content">
+            <span class="card-title">How to use</span>
+            <br>
+            <p>Press <em>allow</em> if you want the browser to access your webcam.</p><br>
+            <p><em>Right-click</em> on the photo taken and choose <em>Save image as...</em> to download the photo to your
+              desktop. </p><br>
+            <p>You may either choose to upload the picture you've taken or upload another image file. To do this,
+              press <em>Choose File</em> and confirm.</p>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col m2"></div>
+    </div>
+  </div>
+
 
 
 
