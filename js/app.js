@@ -173,7 +173,6 @@ function uploadFile() {
     // Update queryURL with appropriate trackID
     var queryURL = "https://api.napster.com/v2.2/tracks/" + trackID + "?" + apikey;
 
-    // Ajax that shit
     $.ajax({
       url: queryURL,
       method: "GET"
@@ -184,8 +183,6 @@ function uploadFile() {
       var a = $("<audio controls autoplay>");
       var p = $('<p class="artistInfo center-align white-text">');
       var c = $('<p class="artistInfo center-align white-text">');
-
-      // $('.preview').show("puff");
 
       // Empty audio controls before every request so we don't get duplicates
       $('.preview').empty().hide("scale");
