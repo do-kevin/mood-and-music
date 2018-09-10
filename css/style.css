@@ -22,6 +22,7 @@
 .btn{
     font-family: 'Ubuntu', sans-serif;
     margin: 10px;
+    padding: 10px 50px 40px 50px;
 }
 
 .brand-logo{
@@ -36,17 +37,21 @@ h2{
     font-weight: 400;
     font-size: 100px;
     margin-top: 60px; 
+
 }
 
 em {
     background-color: rgb(152, 153, 158);
-    padding: 4px;
+    padding-top:11px;
     border-radius: 3px;
     font-family: monospace;
     border-bottom: 1px solid gray;
     color: white;
     display: inline-block;
 }
+
+
+
 
 .card-title {
     font-size: 40px !important;
@@ -71,7 +76,7 @@ a, p{
 }
 
 #instructions{
-    height: 275px;
+    height: 100%;
 }
 
 
