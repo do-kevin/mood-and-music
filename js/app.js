@@ -214,18 +214,26 @@ function uploadFile() {
     });
   }
 }
-var p = $('<p>').addClass('artistInfo center-align white-text').html(localStorage.getItem('song') + " by " + localStorage.getItem('artist'));
-$(".preview").append(p).show("scale", 1050);
 
-var a = $("<audio controls autoplay>").attr("src", localStorage.getItem('url'));
-$(".preview").attr('id', 'song').append(a).show("scale", 1060);
+if ((localStorage.getItem('song') !== null) ||
+  (localStorage.getItem('artist') !== null) ||
+  (localStorage.getItem('url') !== null) ||
+  (localStorage.getItem('album') !== null)) {
+  var p = $('<p>').addClass('artistInfo center-align white-text').html(localStorage.getItem('song') + " by " + localStorage.getItem('artist'));
+  $(".preview").append(p).show("scale", 1050);
 
-var c = $('<p>').addClass('artistInfo center-align white-text').html(localStorage.getItem('album') + " Album").show("scale", 1200);
-$(".preview").append(c).show("scale", 1100);
+  var a = $("<audio controls autoplay>").attr("src", localStorage.getItem('url'));
+  $(".preview").attr('id', 'song').append(a).show("scale", 1060);
 
-console.log(localStorage.getItem('song'));
-console.log(localStorage.getItem('artist'));
-console.log(localStorage.getItem('url'));
-console.log(localStorage.getItem('album'));
+  var c = $('<p>').addClass('artistInfo center-align white-text').html(localStorage.getItem('album') + " Album").show("scale", 1200);
+  $(".preview").append(c).show("scale", 1100);
+
+  console.log(localStorage.getItem('song'));
+  console.log(localStorage.getItem('artist'));
+  console.log(localStorage.getItem('url'));
+  console.log(localStorage.getItem('album'));
+}
+
+
 
 
