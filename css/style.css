@@ -2,8 +2,6 @@
     margin-top: 60px;
 }
 
-
-
 /* .camContainer {
     width: 320px;
     height:240px;
@@ -57,7 +55,28 @@ h2{
     margin-top: 60px; 
 }
 
+em {
+    background-color: rgb(152, 153, 158);
+    padding: 4px;
+    border-radius: 3px;
+    font-family: monospace;
+    border-bottom: 1px solid gray;
+    color: white;
+}
 
+.card-title {
+    font-size: 40px !important;
+}
+
+body {
+    background: repeating-radial-gradient(
+        circle,
+        rgba(224, 224, 224, 0.829),
+        rgba(224, 224, 224, 0.829) 10px,
+        #dbdbdb 10px, 
+        #dbdbdb 20px
+      );
+}
 
 a, p{
     font-family: 'Ubuntu', sans-serif; 
@@ -79,6 +98,7 @@ a, p{
 
 .preview{
     margin-top: 40px;
+    border-radius: 25px;
 }
 
 
