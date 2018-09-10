@@ -24,5 +24,6 @@
 - Firebase
 - Parallel Dots AI API
 - Napster API
+- jQuery UI
 
 --------------
