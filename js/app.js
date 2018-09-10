@@ -117,15 +117,15 @@ function uploadFile() {
   function emotionDetect() {
     if (urlRetrieved) {
       $.ajax({
-        url: 'https://apis.paralleldots.com/v3/facial_emotion?api_key=n3yLuB3RxgDcj5DYAxaxtqxbNqtszhif3dvP4wtrtYE&url=' + downloadURL,
+        url: 'https://apis.paralleldots.com/v3/facial_emotion?api_key=Cr6V9f2rl8RJDzQQp1ZFRwosg73K8k0MOcOCf4d119E&url=' + downloadURL,
         method: 'POST'
       }).then(function (response) {
         if (response.output === 'No face detected.') {
           console.log('You are probably a robot with no emotions');
-          $(".preview").empty();
+          $(".preview").empty().hide("scale");;
 
-          var e = $('<p class="errBox">');
-          $(".preview").append(e);
+          var e = $('<br><p class="errBox white-text">');
+          $(".preview").append(e).show("scale", 1050);
           e.html("You are probably a robot with no emotions. Please upload another image file with a headshot and sufficient lighting.");
         } else {
           console.log(response.facial_emotion[0].tag);
@@ -185,17 +185,20 @@ function uploadFile() {
       var p = $('<p class="artistInfo center-align white-text">');
       var c = $('<p class="artistInfo center-align white-text">');
 
+      // $('.preview').show("puff");
+
       // Empty audio controls before every request so we don't get duplicates
-      $('.preview').empty();
+      $('.preview').empty().hide("scale");
 
       p.html(database[0].name + " by " + database[0].artistName);
-      $(".preview").append(p);
+
+      $(".preview").append(p).show("scale", 1050);
 
       a.attr("src", database[0].previewURL);
-      $(".preview").attr('id', 'song').append(a);
+      $(".preview").attr('id', 'song').append(a).show("scale", 1060);
 
-      c.html(database[0].albumName + " Album");
-      $(".preview").append(c);
+      c.html(database[0].albumName + " Album").show("scale", 1200);
+      $(".preview").append(c).show("scale", 1100);
 
     });
 
