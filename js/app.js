@@ -119,8 +119,9 @@ function uploadFile() {
       $.ajax({
         url: 'https://apis.paralleldots.com/v3/facial_emotion?api_key=n3yLuB3RxgDcj5DYAxaxtqxbNqtszhif3dvP4wtrtYE&url=' + downloadURL,
         method: 'POST'
-      }).then(function (response) {
-        if (response.output === 'No face detected.') {
+      }).then(function(response) {
+        console.log(response.code);
+        if ((response.code >= 400) || response.output === 'No face detected.') {
           console.log('You are probably a robot with no emotions');
           $(".preview").empty();
 
