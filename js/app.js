@@ -77,6 +77,13 @@ var thisRef;
 var fileUploaded = false;
 var urlRetrieved = false;
 var mood;
+var name;
+var artistName;
+var previewURL;
+var albumName;
+// var a;
+// var p;
+// var c;
 
 firebase.initializeApp(config);
 
@@ -198,8 +205,27 @@ function uploadFile() {
       c.html(database[0].albumName + " Album").show("scale", 1200);
       $(".preview").append(c).show("scale", 1100);
 
+      localStorage.clear();
+
+      localStorage.setItem('song', database[0].name);
+      localStorage.setItem('artist', database[0].artistName);
+      localStorage.setItem('url', database[0].previewURL);
+      localStorage.setItem('album', database[0].albumName);
     });
-
   }
-
 }
+var p = $('<p>').addClass('artistInfo center-align white-text').html(localStorage.getItem('song') + " by " + localStorage.getItem('artist'));
+$(".preview").append(p).show("scale", 1050);
+
+var a = $("<audio controls autoplay>").attr("src", localStorage.getItem('url'));
+$(".preview").attr('id', 'song').append(a).show("scale", 1060);
+
+var c = $('<p>').addClass('artistInfo center-align white-text').html(localStorage.getItem('album') + " Album").show("scale", 1200);
+$(".preview").append(c).show("scale", 1100);
+
+console.log(localStorage.getItem('song'));
+console.log(localStorage.getItem('artist'));
+console.log(localStorage.getItem('url'));
+console.log(localStorage.getItem('album'));
+
+
