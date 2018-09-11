@@ -41,6 +41,7 @@ navigator.mediaDevices
       }
     );
   });
+var blob;
 
 document.querySelector("#capture").addEventListener("click", function() {
   console.log("hit");
@@ -55,24 +56,30 @@ document.querySelector("#capture").addEventListener("click", function() {
   // The ".toDataURL" spits out base64 code which will be attached to the source
   photo.setAttribute("src", canvas.toDataURL("image/jpeg", 1.0));
 
-  // console.log(photo);  
-  // var b64Data = canvas.toDataURL("image/jpeg", 1.0);
+  console.log(photo);  
+  var b64Data = canvas.toDataURL("image/jpeg", 1.0);
 
-  // function b64toBlob(b64Data) {
-  //   // console.log(b64Data);
-  //   var byteString = atob(b64Data.split(",")[1]);
-  //   // console.log(byteString);
-  //   var ab = new ArrayBuffer(byteString.length);
-  //   // console.log(ab);
-  //   var ia = new Uint8Array(ab);
-  //   console.log(ia);
+  
 
-  //   for (var i = 0; i < byteString.length; i++) {
-  //     ia[i] = byteString.charCodeAt(i);
-  //   }
-  //   return new Blob([ab], { type: "image/jpeg" });
-  // }
-  // console.log(b64toBlob(b64Data));
+  function b64toBlob(b64Data) {
+    // console.log(b64Data);
+    var byteString = atob(b64Data.split(",")[1]);
+    // console.log(byteString);
+    var ab = new ArrayBuffer(byteString.length);
+    // console.log(ab);
+    var ia = new Uint8Array(ab);
+    console.log(ia);
+
+    for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    
+    blob = new Blob([ab], { type: "image/jpeg" });
+    return
+  }
+  console.log(b64toBlob(b64Data));
+  
+  uploadFile();
   
 });
 
@@ -101,12 +108,30 @@ firebase.initializeApp(config);
 
 // Function to save file. Called when button is clicked
 function uploadFile() {
-  // var blob = b64toBlob(b64Data);
+  //var blob = b64toBlob(b64Data);
   file = $("#files").get(0).files[0];
+  console.log(blob);
   // file = blob;
+
+  var uploadFileName;
+  if (file === undefined) {
+    file = blob;
+    uploadFileName = "placeholder";
+  } else {
+    uploadFileName = file.name;
+  }
+
+  
+
+  // Another variable called "name" 
+  // if file is undefined, create a random name
+  //otherwise, name will equal file.name
+
   if (file !== undefined) {
+
     storageRef = firebase.storage().ref();
-    thisRef = storageRef.child(file.name);
+    thisRef = storageRef.child(uploadFileName);
+    console.log(thisRef);
 
     // Upload file to Firebase storage
     thisRef
@@ -119,6 +144,8 @@ function uploadFile() {
       .catch(err => {
         console.log(err);
       });
+
+
   }
 
   // Retrieve URL for uploaded file
