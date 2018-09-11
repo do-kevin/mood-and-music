@@ -125,7 +125,6 @@ function uploadFile() {
         (response.output === "No face detected.")) {
           console.log("You are probably a robot with no emotions");
           $(".preview").empty().hide("scale");
-
           var e = $('<br><p class="errBox white-text">');
           $(".preview").append(e).show("scale", 1050);
           e.html("You're probably an emotionless robot. Please upload another image file with a headshot and sufficient lighting.");
@@ -137,8 +136,7 @@ function uploadFile() {
           var e = $('<br><p class="errBox white-text">');
           $(".preview").append(e).show("scale", 1050);
           e.html("API key changed, please try again.");
-        }
-        else {
+        } else {
           console.log(response.facial_emotion[0].tag);
           mood = response.facial_emotion[0].tag;
           retrieveSong();
