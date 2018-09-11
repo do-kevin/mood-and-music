@@ -25,6 +25,6 @@
 - Parallel Dots AI API
 - Napster API
 - jQuery UI
-- SoundJs
+- SoundJS API
 
 --------------
