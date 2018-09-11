@@ -125,16 +125,13 @@ function uploadFile() {
         (response.output === "No face detected.")) {
           console.log("You are probably a robot with no emotions");
           $(".preview").empty().hide("scale");
-
           var e = $('<br><p class="errBox white-text">');
           $(".preview").append(e).show("scale", 1050);
           e.html("You are probably a robot with no emotions. Please upload another image file with a headshot and sufficient lighting.");
-        }
-        else if(response.code === 403) {
+        } else if (response.code === 403) {
           dotsAPIkey = "n3yLuB3RxgDcj5DYAxaxtqxbNqtszhif3dvP4wtrtYE";
           emotionDetect();
-        }
-        else {
+        } else {
           console.log(response.facial_emotion[0].tag);
           mood = response.facial_emotion[0].tag;
           retrieveSong();
