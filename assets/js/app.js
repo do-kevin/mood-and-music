@@ -1,4 +1,9 @@
+//=================================== SFX =================================
+var audio = new Audio("assets/sounds/button.mp3");
+var audioUpload = new Audio("assets/sounds/buttonTwo.wav");
+
 //=========================================== Webcam (WebRTC)====================================
+
 var video = document.querySelector("#video"),
   canvas = document.querySelector("#canvas"),
   context = canvas.getContext("2d"),
@@ -44,7 +49,8 @@ navigator.mediaDevices
 var blob;
 
 document.querySelector("#capture").addEventListener("click", function() {
-  // console.log("hit");
+  
+  audio.play();
   //What I want to draw on
   // (video, IDK, IDK, width, height)
   context.drawImage(video, 0, 0, 320, 240);
@@ -56,10 +62,8 @@ document.querySelector("#capture").addEventListener("click", function() {
   // The ".toDataURL" spits out base64 code which will be attached to the source
   photo.setAttribute("src", canvas.toDataURL("image/jpeg", 1.0));
 
-  // console.log(photo);  
+  // console.log(photo);
   var b64Data = canvas.toDataURL("image/jpeg", 1.0);
-
-  
 
   function b64toBlob(b64Data) {
     // console.log(b64Data);
@@ -73,14 +77,13 @@ document.querySelector("#capture").addEventListener("click", function() {
     for (var i = 0; i < byteString.length; i++) {
       ia[i] = byteString.charCodeAt(i);
     }
-    
+
     blob = new Blob([ab], { type: "image/jpeg" });
-    return
+    return;
   }
   console.log(b64toBlob(b64Data));
-  
+
   uploadFile();
-  
 });
 
 //==============================================Initialize Firebase==================================================
@@ -108,6 +111,8 @@ firebase.initializeApp(config);
 
 // Function to save file. Called when button is clicked
 function uploadFile() {
+  audioUpload.play();
+
   file = $("#files").get(0).files[0];
   // console.log(blob);
 
@@ -119,14 +124,11 @@ function uploadFile() {
     uploadFileName = file.name;
   }
 
-  
-
-  // Another variable called "name" 
+  // Another variable called "name"
   // if file is undefined, create a random name
   //otherwise, name will equal file.name
 
   if (file !== undefined) {
-
     storageRef = firebase.storage().ref();
     thisRef = storageRef.child(uploadFileName);
     // console.log(thisRef);
@@ -142,8 +144,6 @@ function uploadFile() {
       .catch(err => {
         console.log(err);
       });
-
-
   }
 
   // Retrieve URL for uploaded file
