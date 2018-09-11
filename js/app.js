@@ -14,34 +14,30 @@ function webcam() {
   };
 
   navigator.mediaDevices.getUserMedia(constraints)
-    .then(function (mediaStream) {
-      var video = document.querySelector('video');
+    .then(function(mediaStream) {
+      var video = document.querySelector("video"); // is this supposed to be "#video"?
       video.srcObject = mediaStream;
-      video.onloadedmetadata = function (e) {
+      video.onloadedmetadata = function(e) {
         video.play();
       };
-    }).catch(function (err) {
+    }).catch(function(err) {
       // Old browser support?
       navigator.getMedia = navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia || // Mozilla
-        navigator.msGetUsermedia; // Microsoft IE
-
+      navigator.webkitGetUserMedia ||
+      navigator.mozGetUserMedia || // Mozilla
+      navigator.msGetUsermedia; // Microsoft IE
       navigator.getMedia({
         video: true,
         audio: false // No need to capture audio
-      }, function (stream) {
-
+      }, function(stream) {
         video.srcObject = stream;
         video.play();
-      }, function (err) {
+      }, function(err) {
         console.log(err);
       });
     });
 
-
-
-  document.querySelector("#capture").addEventListener("click", function () {
+  document.querySelector("#capture").addEventListener("click", function() {
     //What I want to draw on
     // (video, IDK, IDK, width, height)
     context.drawImage(video, 0, 0, 320, 240);
@@ -56,10 +52,10 @@ function webcam() {
     // var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
     // window.location.href = image;
   });
+
 }
 
 webcam();
-
 
 //==============================================Initialize Firebase==================================================
 var config = {
@@ -81,21 +77,18 @@ var name;
 var artistName;
 var previewURL;
 var albumName;
-// var a;
-// var p;
-// var c;
 
 firebase.initializeApp(config);
 
 // Function to save file. Called when button is clicked
 function uploadFile() {
-  file = $('#files').get(0).files[0];
+  file = $("#files").get(0).files[0];
     if (file !== undefined) {
       storageRef = firebase.storage().ref();
       thisRef = storageRef.child(file.name);
 
       // Upload file to Firebase storage
-      thisRef.put(file).then(function (snapshot) {
+      thisRef.put(file).then(function(snapshot) {
         fileUploaded = !fileUploaded;
         console.log("File Uploaded");
         retrieveUrl();
@@ -124,13 +117,14 @@ function uploadFile() {
   function emotionDetect() {
     if (urlRetrieved) {
       $.ajax({
-        url: 'https://apis.paralleldots.com/v3/facial_emotion?api_key=Cr6V9f2rl8RJDzQQp1ZFRwosg73K8k0MOcOCf4d119E&url=' + downloadURL,
-        method: 'POST'
+        url: "https://apis.paralleldots.com/v3/facial_emotion?api_key=Cr6V9f2rl8RJDzQQp1ZFRwosg73K8k0MOcOCf4d119E&url=" + downloadURL,
+        method: "POST"
       }).then(function(response) {
         console.log(response.code);
-        if ((response.code >= 400) || response.output === 'No face detected.') {
-          console.log('You are probably a robot with no emotions');
-          $(".preview").empty().hide("scale");;
+        if ((response.code >= 400) ||
+        (response.output === "No face detected.")) {
+          console.log("You are probably a robot with no emotions");
+          $(".preview").empty().hide("scale");
 
           var e = $('<br><p class="errBox white-text">');
           $(".preview").append(e).show("scale", 1050);
@@ -152,29 +146,29 @@ function uploadFile() {
   // Match mood to appropriate music choice
   function retrieveSong() {
     switch (mood) {
-      case 'Angry':
+      case "Angry":
         trackID = "tra.128493454";
         break;
-      case 'Fear':
+      case "Fear":
         trackID = "tra.268797739";
         break;
-      case 'Neutral':
+      case "Neutral":
         trackID = "tra.305200130";
         break;
-      case 'Surprise':
+      case "Surprise":
         trackID = "tra.41390755";
         break;
-      case 'Sad':
+      case "Sad":
         trackID = "tra.2732140";
         break;
-      case 'Happy':
+      case "Happy":
         trackID = "tra.257617960";
         break;
-      case 'Disgust':
+      case "Disgust":
         trackID = "tra.1341825";
         break;
       default:
-        console.log('You are a robot with no emotions');
+        console.log("You are a robot with no emotions");
         break;
     }
 
@@ -193,47 +187,39 @@ function uploadFile() {
       var c = $('<p class="artistInfo center-align white-text">');
 
       // Empty audio controls before every request so we don't get duplicates
-      $('.preview').empty().hide("scale");
+      $(".preview").empty().hide("scale");
 
       p.html(database[0].name + " by " + database[0].artistName);
-
       $(".preview").append(p).show("scale", 1050);
 
       a.attr("src", database[0].previewURL);
-      $(".preview").attr('id', 'song').append(a).show("scale", 1060);
+      $(".preview").attr("id", "song").append(a).show("scale", 1060);
 
       c.html(database[0].albumName + " Album").show("scale", 1200);
       $(".preview").append(c).show("scale", 1100);
 
       localStorage.clear();
 
-      localStorage.setItem('song', database[0].name);
-      localStorage.setItem('artist', database[0].artistName);
-      localStorage.setItem('url', database[0].previewURL);
-      localStorage.setItem('album', database[0].albumName);
+      localStorage.setItem("song", database[0].name);
+      localStorage.setItem("artist", database[0].artistName);
+      localStorage.setItem("url", database[0].previewURL);
+      localStorage.setItem("album", database[0].albumName);
     });
   }
 }
 
-if ((localStorage.getItem('song') !== null) ||
-  (localStorage.getItem('artist') !== null) ||
-  (localStorage.getItem('url') !== null) ||
-  (localStorage.getItem('album') !== null)) {
-  var p = $('<p>').addClass('artistInfo center-align white-text').html(localStorage.getItem('song') + " by " + localStorage.getItem('artist'));
+if ((localStorage.getItem("song") !== null) ||
+  (localStorage.getItem("artist") !== null) ||
+  (localStorage.getItem("url") !== null) ||
+  (localStorage.getItem("album") !== null)) {
+
+  var p = $("<p>").addClass("artistInfo center-align white-text").html(localStorage.getItem("song") + " by " + localStorage.getItem("artist"));
   $(".preview").append(p).show("scale", 1050);
 
-  var a = $("<audio controls autoplay>").attr("src", localStorage.getItem('url'));
-  $(".preview").attr('id', 'song').append(a).show("scale", 1060);
+  var a = $("<audio controls autoplay>").attr("src", localStorage.getItem("url"));
+  $(".preview").attr("id", "song").append(a).show("scale", 1060);
 
-  var c = $('<p>').addClass('artistInfo center-align white-text').html(localStorage.getItem('album') + " Album").show("scale", 1200);
+  var c = $("<p>").addClass("artistInfo center-align white-text").html(localStorage.getItem("album") + " Album").show("scale", 1200);
   $(".preview").append(c).show("scale", 1100);
 
-  console.log(localStorage.getItem('song'));
-  console.log(localStorage.getItem('artist'));
-  console.log(localStorage.getItem('url'));
-  console.log(localStorage.getItem('album'));
 }
-
-
-
-
