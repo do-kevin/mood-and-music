@@ -128,11 +128,15 @@ function uploadFile() {
 
           var e = $('<br><p class="errBox white-text">');
           $(".preview").append(e).show("scale", 1050);
-          e.html("You are probably a robot with no emotions. Please upload another image file with a headshot and sufficient lighting.");
+          e.html("You're probably an emotionless robot. Please upload another image file with a headshot and sufficient lighting.");
         }
         else if(response.code === 403) {
           dotsAPIkey = "n3yLuB3RxgDcj5DYAxaxtqxbNqtszhif3dvP4wtrtYE";
-          emotionDetect();
+          $(".preview").empty().hide("scale");
+
+          var e = $('<br><p class="errBox white-text">');
+          $(".preview").append(e).show("scale", 1050);
+          e.html("API key changed, please try again.");
         }
         else {
           console.log(response.facial_emotion[0].tag);
