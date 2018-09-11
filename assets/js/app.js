@@ -44,7 +44,7 @@ navigator.mediaDevices
 var blob;
 
 document.querySelector("#capture").addEventListener("click", function() {
-  console.log("hit");
+  // console.log("hit");
   //What I want to draw on
   // (video, IDK, IDK, width, height)
   context.drawImage(video, 0, 0, 320, 240);
@@ -56,7 +56,7 @@ document.querySelector("#capture").addEventListener("click", function() {
   // The ".toDataURL" spits out base64 code which will be attached to the source
   photo.setAttribute("src", canvas.toDataURL("image/jpeg", 1.0));
 
-  console.log(photo);  
+  // console.log(photo);  
   var b64Data = canvas.toDataURL("image/jpeg", 1.0);
 
   
@@ -68,7 +68,7 @@ document.querySelector("#capture").addEventListener("click", function() {
     var ab = new ArrayBuffer(byteString.length);
     // console.log(ab);
     var ia = new Uint8Array(ab);
-    console.log(ia);
+    // console.log(ia);
 
     for (var i = 0; i < byteString.length; i++) {
       ia[i] = byteString.charCodeAt(i);
@@ -108,10 +108,8 @@ firebase.initializeApp(config);
 
 // Function to save file. Called when button is clicked
 function uploadFile() {
-  //var blob = b64toBlob(b64Data);
   file = $("#files").get(0).files[0];
-  console.log(blob);
-  // file = blob;
+  // console.log(blob);
 
   var uploadFileName;
   if (file === undefined) {
@@ -131,7 +129,7 @@ function uploadFile() {
 
     storageRef = firebase.storage().ref();
     thisRef = storageRef.child(uploadFileName);
-    console.log(thisRef);
+    // console.log(thisRef);
 
     // Upload file to Firebase storage
     thisRef
@@ -179,7 +177,7 @@ function uploadFile() {
           downloadURL,
         method: "POST"
       }).then(function(response) {
-        console.log(response.code);
+        // console.log(response.code);
         if (response.code >= 400 || response.output === "No face detected.") {
           console.log("You are probably a robot with no emotions");
           $(".preview")
