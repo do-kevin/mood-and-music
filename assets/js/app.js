@@ -54,23 +54,24 @@ document.querySelector("#capture").addEventListener("click", function() {
   //              bar when you open it in a new tab; however, you cannot copy its image address.
   // The ".toDataURL" spits out base64 code which will be attached to the source
   photo.setAttribute("src", canvas.toDataURL("image/jpeg", 1.0));
-  console.log(photo);   
-  var b64Data = canvas.toDataURL("image/jpeg", 1.0);
 
-  function b64toBlob(b64Data) {
-    // console.log(b64Data);
-    var byteString = atob(b64Data.split(",")[1]);
-    // console.log(byteString);
-    var ab = new ArrayBuffer(byteString.length);
-    // console.log(ab);
-    var ia = new Uint8Array(ab);
-    console.log(ia);
+  // console.log(photo);  
+  // var b64Data = canvas.toDataURL("image/jpeg", 1.0);
 
-    for (var i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
-    }
-    return new Blob([ab], { type: "image/jpeg" });
-  }
+  // function b64toBlob(b64Data) {
+  //   // console.log(b64Data);
+  //   var byteString = atob(b64Data.split(",")[1]);
+  //   // console.log(byteString);
+  //   var ab = new ArrayBuffer(byteString.length);
+  //   // console.log(ab);
+  //   var ia = new Uint8Array(ab);
+  //   console.log(ia);
+
+  //   for (var i = 0; i < byteString.length; i++) {
+  //     ia[i] = byteString.charCodeAt(i);
+  //   }
+  //   return new Blob([ab], { type: "image/jpeg" });
+  // }
   // console.log(b64toBlob(b64Data));
   
 });
@@ -100,7 +101,7 @@ firebase.initializeApp(config);
 
 // Function to save file. Called when button is clicked
 function uploadFile() {
-  var blob = b64toBlob(b64Data);
+  // var blob = b64toBlob(b64Data);
   file = $("#files").get(0).files[0];
   // file = blob;
   if (file !== undefined) {
