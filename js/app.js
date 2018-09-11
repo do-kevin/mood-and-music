@@ -115,8 +115,9 @@ function uploadFile() {
   // Ajax call using url as source for detection
   function emotionDetect() {
     if (urlRetrieved) {
+      var dotsAPIkey = "Cr6V9f2rl8RJDzQQp1ZFRwosg73K8k0MOcOCf4d119E";
       $.ajax({
-        url: "https://apis.paralleldots.com/v3/facial_emotion?api_key=Cr6V9f2rl8RJDzQQp1ZFRwosg73K8k0MOcOCf4d119E&url=" + downloadURL,
+        url: "https://apis.paralleldots.com/v3/facial_emotion?api_key=" + dotsAPIkey +"&url=" + downloadURL,
         method: "POST"
       }).then(function(response) {
         console.log(response.code);
@@ -128,7 +129,12 @@ function uploadFile() {
           var e = $('<br><p class="errBox white-text">');
           $(".preview").append(e).show("scale", 1050);
           e.html("You are probably a robot with no emotions. Please upload another image file with a headshot and sufficient lighting.");
-        } else {
+        }
+        else if(response.code === 403) {
+          dotsAPIkey = "n3yLuB3RxgDcj5DYAxaxtqxbNqtszhif3dvP4wtrtYE";
+          emotionDetect();
+        }
+        else {
           console.log(response.facial_emotion[0].tag);
           mood = response.facial_emotion[0].tag;
           retrieveSong();
