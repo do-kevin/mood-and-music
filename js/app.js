@@ -90,24 +90,24 @@ firebase.initializeApp(config);
 // Function to save file. Called when button is clicked
 function uploadFile() {
   file = $('#files').get(0).files[0];
-    if (file !== undefined) {
-      storageRef = firebase.storage().ref();
-      thisRef = storageRef.child(file.name);
+  if (file !== undefined) {
+    storageRef = firebase.storage().ref();
+    thisRef = storageRef.child(file.name);
 
-      // Upload file to Firebase storage
-      thisRef.put(file).then(function (snapshot) {
-        fileUploaded = !fileUploaded;
-        console.log("File Uploaded");
-        retrieveUrl();
-      }).catch(err => {
-        console.log(err);
-      });
-    }
+    // Upload file to Firebase storage
+    thisRef.put(file).then(function (snapshot) {
+      fileUploaded = !fileUploaded;
+      console.log("File Uploaded");
+      retrieveUrl();
+    }).catch(err => {
+      console.log(err);
+    });
+  }
 
   // Retrieve URL for uploaded file
   function retrieveUrl() {
     if (fileUploaded) {
-      thisRef.getDownloadURL().then(function(url) {
+      thisRef.getDownloadURL().then(function (url) {
         downloadURL = url;
         fileUploaded = !fileUploaded;
         urlRetrieved = !urlRetrieved;
@@ -119,7 +119,7 @@ function uploadFile() {
     }
   }
 
-//======================================== ParallelDots ===========================================
+  //======================================== ParallelDots ===========================================
   // Ajax call using url as source for detection
   function emotionDetect() {
     if (urlRetrieved) {
@@ -129,35 +129,54 @@ function uploadFile() {
       $.ajax({
         url: "https://apis.paralleldots.com/v3/facial_emotion?api_key=" + emotionAPIkey + "&url=" + downloadURL,
         method: 'POST'
-      }).then(function(response) {
+      }).then(function (response) {
         console.log(response.code);
-        if ((response.code >= 400) || response.output === 'No face detected.') {
-          console.log('You are probably a robot with no emotions');
-          $(".preview").empty().hide("scale");;
-
-          var e = $('<br><p class="errBox white-text">');
-          $(".preview").append(e).show("scale", 1050);
-          e.html("You are probably a robot with no emotions. Please upload another image file with a headshot and sufficient lighting.");
-        } 
         
-        else if (response.code === 429) {
-          // emotionAPIkey = "n3yLuB3RxgDcj5DYAxaxtqxbNqtszhif3dvP4wtrtYE";
-          console.log('Switching API keys');
-          console.log(emotionAPIkey);
-          // emotionDetect();
-        }
+        // if ((response.code >= 400) || response.output === 'No face detected.') {
+        //   console.log('You are probably a robot with no emotions');
+        //   $(".preview").empty().hide("scale");
 
-        else {
-          console.log(response.facial_emotion[0].tag);
-          mood = response.facial_emotion[0].tag;
-          retrieveSong();
+        //   var e = $('<br><p class="errBox white-text">');
+        //   $(".preview").append(e).show("scale", 1050);
+        //   e.html("You are probably a robot with no emotions. Please upload another image file with a headshot and sufficient lighting.");
+        // }
+
+        // else if (response.code === 429) {
+        //   // emotionAPIkey = "n3yLuB3RxgDcj5DYAxaxtqxbNqtszhif3dvP4wtrtYE";
+        //   console.log('Switching API keys');
+        //   console.log(emotionAPIkey);
+        //   // emotionDetect();
+        // }
+
+        // else {
+        //   console.log(response.facial_emotion[0].tag);
+        //   mood = response.facial_emotion[0].tag;
+        //   retrieveSong();
+        // }
+
+        switch (response.code || response.output) {
+          case (response.code >= 400) || response.output === 'No face detected.':
+            console.log('You are probably a robot with no emotions');
+            $(".preview").empty().hide("scale");
+            var e = $('<br><p class="errBox white-text">');
+            $(".preview").append(e).show("scale", 1050);
+            e.html("You are probably a robot with no emotions. Please upload another image file with a headshot and sufficient lighting.");
+          case response.code === 429:
+            emotionAPIkey = "n3yLuB3RxgDcj5DYAxaxtqxbNqtszhif3dvP4wtrtYE";
+            console.log('Switching API keys');
+            console.log(emotionAPIkey);
+            emotionDetect();
+          default:
+            console.log(response.facial_emotion[0].tag);
+            mood = response.facial_emotion[0].tag;
+            retrieveSong();
         }
       });
       urlRetrieved = !urlRetrieved;
     }
   }
 
-//======================================= Napster ==============================================
+  //======================================= Napster ==============================================
   var apikey = "apikey=NDU0ZjU2ZWMtMjVhMS00NmNlLWI3NWItYTdlNTc5ODdkMzNk";
   var trackID;
 
@@ -196,7 +215,7 @@ function uploadFile() {
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
       var database = response.tracks;
       console.log(database);
 
