@@ -6,23 +6,24 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <script src="https://code.createjs.com/soundjs-0.6.2.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <title>Mood and Music</title>
 </head>
 
-<body>
+<body onload="loadSound();">
   <!-- NAVIGATION -->
   <div class="navbar-fixed">
     <nav class="black">
       <div class="nav-wrapper">
         <a href="https://github.com/do-kevin/Project-One" class="brand-logo show-on-medium-and-up hide-on-small-only"><i
-            class="icon"><img src="images/GitHub logo.png" alt="github icon" id="github-icon"></i>docs repo</a>
+            class="icon"><img src="assets/images/GitHub logo.png" alt="github icon" id="github-icon"></i>docs repo</a>
         <a href="https://github.com/do-kevin/Project-One" class="brand-logo show-on-small hide-on-med-and-up"><i class="icon"><img
-              src="images/GitHub logo.png" alt="github icon" id="github-icon"></i></a>
+              src="assets/images/GitHub logo.png" alt="github icon" id="github-icon"></i></a>
         <!-- <h6 class="show-on-small hide-on-med-and-up"><a href="#" class="brand-logo center">docs repo</a></h6> -->
       </div>
     </nav>
@@ -63,7 +64,7 @@
     <div class="row">
       <div class="col m2"></div>
       <div class="col m8 center-align">
-        <a href="#" id="capture" class="center-align amber darken-4 waves-effect waves-yellow btn"><span><i class="material-icons" style="font-size: 40px">camera_alt</i></span></a>
+        <a href="#" id="capture" onclick="playSound();" class="center-align amber darken-4 waves-effect waves-yellow btn playSound"><span><i class="material-icons" style="font-size: 40px">camera_alt</i></span></a>
 
         <!-- <form action="#">
             <div class="file-field input-field">
@@ -77,7 +78,7 @@
             </div>
           </form> -->
         <input type="file" onchange="uploadFile()" id="files" name="files[]" class="inputFile hide">
-        <label for="files" class="center-align amber darken-4 waves-effect waves-yellow btn"><i class="material-icons" style="font-size: 40px">file_upload</i></label>
+        <label for="files" onclick="playSound();" class="center-align amber darken-4 waves-effect waves-yellow btn playSound"><i class="material-icons" style="font-size: 40px">file_upload</i></label>
       </div>
       <div class="col m2"></div>
     </div>
@@ -143,7 +144,7 @@
     crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-storage.js"></script>
-  <script src="js/app.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 
 </html>
