@@ -37,6 +37,19 @@ function webcam() {
       });
     });
 
+    document.querySelector("#capture").addEventListener("click", function () {
+      //What I want to draw on
+      // (video, IDK, IDK, width, height)
+      context.drawImage(video, 0, 0, 320, 240);
+
+      // Grab from the canvas and placing into the photo src, which is the link and where the picture is saved.
+      // The src of the file is transferred to "data:image/png;base64[picture's code]"
+      // For example, take a picture. Right-click on the pic and you can see its address
+      //              bar when you open it in a new tab; however, you cannot copy its image address.
+      // The ".toDataURL" spits out base64 code which will be attached to the source
+      photo.setAttribute("src", canvas.toDataURL("image/jpeg"));
+  });
+
 }
 
 webcam();
