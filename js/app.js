@@ -128,12 +128,10 @@ function uploadFile() {
           var e = $('<br><p class="errBox white-text">');
           $(".preview").append(e).show("scale", 1050);
           e.html("You're probably an emotionless robot. Please upload another image file with a headshot and sufficient lighting.");
-        }
-        else if(response.code === 403) {
+        } else if(response.code === 403) {
           dotsAPIkey = "n3yLuB3RxgDcj5DYAxaxtqxbNqtszhif3dvP4wtrtYE";
           $(".preview").empty().hide("scale");
-
-          var e = $('<br><p class="errBox white-text">');
+           var e = $('<br><p class="errBox white-text">');
           $(".preview").append(e).show("scale", 1050);
           e.html("API key changed, please try again.");
         } else {
