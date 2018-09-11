@@ -15,7 +15,6 @@ function webcam() {
 
   navigator.mediaDevices.getUserMedia(constraints)
     .then(function(mediaStream) {
-      var video = document.querySelector("video"); // is this supposed to be "#video"?
       video.srcObject = mediaStream;
       video.onloadedmetadata = function(e) {
         video.play();
