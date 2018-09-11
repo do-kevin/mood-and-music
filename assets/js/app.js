@@ -1,3 +1,13 @@
+var soundID = "buttonClick";
+
+function loadSound () {
+  createjs.Sound.registerSound("assets/sounds/button.mp3", soundID)
+}
+
+function playSound () {
+  createjs.Sound.play(soundID);
+}
+
 //=========================================== Webcam (WebRTC)====================================
 function webcam() {
   var video = document.querySelector("#video"),
