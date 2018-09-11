@@ -64,7 +64,7 @@
     <div class="row">
       <div class="col m2"></div>
       <div class="col m8 center-align">
-        <a href="#" id="capture" class="center-align amber darken-4 waves-effect waves-yellow btn playSound"><span><i class="material-icons" style="font-size: 40px">camera_alt</i></span></a>
+        <a href="#" id="capture" onclick="playSound();" class="center-align amber darken-4 waves-effect waves-yellow btn playSound"><span><i class="material-icons" style="font-size: 40px">camera_alt</i></span></a>
 
         <!-- <form action="#">
             <div class="file-field input-field">
@@ -78,7 +78,7 @@
             </div>
           </form> -->
         <input type="file" onchange="uploadFile()" id="files" name="files[]" class="inputFile hide">
-        <label for="files" id="uploadBtn" class="center-align amber darken-4 waves-effect waves-yellow btn playSound"><i class="material-icons" style="font-size: 40px">file_upload</i></label>
+        <label for="files" onclick="playSound();" class="center-align amber darken-4 waves-effect waves-yellow btn playSound"><i class="material-icons" style="font-size: 40px">file_upload</i></label>
       </div>
       <div class="col m2"></div>
     </div>
