@@ -8,6 +8,8 @@ function playSound () {
   createjs.Sound.play(soundID);
 }
 
+$("#capture", "#uploadBtn").on("click", playSound());
+
 //=========================================== Webcam (WebRTC)====================================
 function webcam() {
   var video = document.querySelector("#video"),
