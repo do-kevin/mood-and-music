@@ -111,7 +111,6 @@ firebase.initializeApp(config);
 
 // Function to save file. Called when button is clicked
 function uploadFile() {
-  audioUpload.play();
 
   file = $("#files").get(0).files[0];
   // console.log(blob);
@@ -148,6 +147,7 @@ function uploadFile() {
 
   // Retrieve URL for uploaded file
   function retrieveUrl() {
+    audioUpload.play();
     if (fileUploaded) {
       thisRef
         .getDownloadURL()
