@@ -130,7 +130,7 @@ function uploadFile() {
           $(".preview").append(e).show("scale", 1050);
           e.html("You are probably a robot with no emotions. Please upload another image file with a headshot and sufficient lighting.");
         }
-        else if(response.code === 429) {
+        else if(response.code === 403) {
           dotsAPIkey = "n3yLuB3RxgDcj5DYAxaxtqxbNqtszhif3dvP4wtrtYE";
           emotionDetect();
         }
