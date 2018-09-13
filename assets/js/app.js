@@ -80,8 +80,8 @@ document.querySelector("#capture").addEventListener("click", function() {
 
     blob = new Blob([ab], { type: "image/jpeg" });
     return;
-  }
-  console.log(b64toBlob(b64Data));
+  };
+  b64toBlob(b64Data);
 
   uploadFile();
 });
