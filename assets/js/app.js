@@ -88,10 +88,10 @@ document.querySelector("#capture").addEventListener("click", function() {
 
 //==============================================Initialize Firebase==================================================
 var config = {
-  apiKey: "AIzaSyDajmKcgfn5dnEGd1Vp8EprgLJNdVOG_AQ",
-  authDomain: "project-one-3e89e.firebaseapp.com",
-  databaseURL: "https://project-one-3e89e.firebaseio.com",
-  storageBucket: "project-one-3e89e.appspot.com"
+  apiKey: "AIzaSyCyH6JqbOa6Ps_v0IMcyedDvoFzUAkhRds",
+  authDomain: "https://mood-and-music.firebaseapp.com",
+  databaseURL: "https://mood-and-music.firebaseio.com",
+  storageBucket: "mood-and-music.appspot.com"
 };
 
 // I needed to make these variables global so we can access the url outside of the function later
