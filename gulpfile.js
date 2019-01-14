@@ -19,8 +19,11 @@ gulp.task('build', async function() {
         .pipe(gulp.dest('build/assets/js'));
     gulp.src('./assets/sounds/*')
         .pipe(gulp.dest('build/assets'));
+    gulp.src('./assets/images/*')
+        .pipe(gulp.dest('build/assets/images'));
     gulp.src('./assets/css/*.css')
         .pipe(gulp.dest('build/assets/css'));
 });
 
 // Then git checkout to gh-pages and run 'git checkout master -- build' 
+// Transfer all files inside build to root directory of gh-pages branch
