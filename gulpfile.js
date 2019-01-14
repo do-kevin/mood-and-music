@@ -18,7 +18,7 @@ gulp.task('build', async function() {
         }))
         .pipe(gulp.dest('build/assets/js'));
     gulp.src('./assets/sounds/*')
-        .pipe(gulp.dest('build/assets'));
+        .pipe(gulp.dest('build/assets/sounds'));
     gulp.src('./assets/images/*')
         .pipe(gulp.dest('build/assets/images'));
     gulp.src('./assets/css/*.css')
