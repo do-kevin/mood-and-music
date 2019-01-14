@@ -1,0 +1,142 @@
+// Terminal in css folder, then. . .
+// stylus --watch --compress style.styl --out .
+
+body
+    background: repeating-radial-gradient(
+        circle,
+        rgba(224, 224, 224, 0.829),
+        rgba(224, 224, 224, 0.829) 10px,
+        #dbdbdb 10px,
+        #dbdbdb 20px
+    );
+
+a, p
+    font-family: 'Ubuntu', sans-serif;
+
+h2
+    font-family: 'Libre Barcode 128 Text', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100px;
+    margin-top: 60px;
+
+em
+    background-color: rgb(152, 153, 158);
+    padding-top: 11px;
+    border-radius: 3px;
+    font-family: monospace;
+    border-bottom: 1px solid gray;
+    color: white;
+    display: inline-block;
+
+#main
+    margin-top: 60px;
+
+.black
+    height: 70px;
+
+#github-icon
+    height: 55px;
+    margin: 7px auto;
+
+#canvas
+    display: none;
+    margin-top: 3px;
+    float: right;
+
+#photo
+    margin-top: 10px;
+    margin-bottom: 3px;
+
+#video
+    margin-top: 10px;
+
+.btn
+    font-family: 'Ubuntu', sans-serif;
+    margin: 10px;
+    padding: 10px 50px 40px 50px;
+
+.brand-logo
+    font-family: 'Calibri';
+    margin-left: 10px;
+    color: white;
+
+.card-title
+    font-size: 40px !important;
+
+#instructions
+    height: 100%;
+
+photobooth-scale(h, w, l, r)
+    height h
+    width w
+    left l
+    right r
+
+#photobooth
+    height: 270px;
+    @media (max-width: 320px)
+        photobooth-scale(440px, null, 8px, null);
+    @media (min-width: 321px) and (max-width: 344px)
+        photobooth-scale(517px, 321px, -9px, 0);
+    @media (min-width: 345px) and (max-width: 360px)
+        photobooth-scale(517px, 321px, null, 7px);
+    @media (min-width: 361px) and (max-width: 366px)
+        photobooth-scale(517px, 321px, 4px, null);
+    @media (min-width: 367px) and (max-width: 379px)
+        photobooth-scale(517px, 321px, 5px, null);
+    @media (min-width: 380px) and (max-width: 400px)
+        photobooth-scale(517px, 321px, null, 4px);
+    @media (min-width: 401px) and (max-width: 430px)
+        photobooth-scale(517px, 321px, 1px, null);
+    @media (min-width: 431px) and (max-width: 474px)
+        photobooth-scale(517px, 321px, 29px, null);
+    @media (min-width: 475px) and (max-width: 487px)
+        photobooth-scale(517px, 321px, 33px, null);
+    @media (min-width: 488px) and (max-width: 510px)
+        photobooth-scale(517px, 321px, null, -46px);
+    @media (min-width: 511px) and (max-width: 569px)
+        photobooth-scale(517px, 321px, 69px, null);
+    @media (min-width: 570px) and (max-width: 600px)
+        photobooth-scale(517px, 321px, 85px, null);
+    @media (min-width: 601px) and (max-width: 618px)
+        photobooth-scale(130px, null, null, null);
+    @media (min-width: 619px) and (max-width: 660px)
+        photobooth-scale(140px, null, null, null);
+    @media (min-width: 661px) and (max-width: 720px)
+        photobooth-scale(160px, null, null, null);
+    @media (min-width: 721px) and (max-width: 780px)
+        photobooth-scale(165px, null, null, null);
+    @media (min-width: 781px) and (max-width: 850px)
+        photobooth-scale(180px, null, null, null);
+    @media (min-width: 851px) and (max-width: 900px)
+        photobooth-scale(200px, null, null, null);
+    @media (min-width: 901px) and (max-width: 935)
+        photobooth-scale(205px, null, null, null);
+    @media (min-width: 936px) and (max-width: 992px)
+        photobooth-scale(215px, null, null, null);
+    @media (min-width: 993px) and (max-width: 1050px)
+        photobooth-scale(180px, null, null, null);
+    @media (min-width: 1051px) and (max-width: 1125px)
+        photobooth-scale(195px, null, null, null);
+    @media (min-width: 1126px) and (max-width: 1200px)
+        photobooth-scale(210px, null, null, null);
+    @media (min-width: 1201px) and (max-width: 1320px)
+        photobooth-scale(230px, null, null, null);
+    @media (min-width: 1321px) and (max-width: 1430)
+        photobooth-scale(250px, null, null, null);
+    @media (min-width: 1431px)
+        photobooth-scale(260px, 37vw, null, null);
+        margin: auto;
+
+#song
+    height: 150px;
+    margin: 0 auto;
+    @media (min-width: 321px) and (max-width: 600px)
+        max-width: 400px;
+        margin: auto;
+
+.preview
+    margin-top: 40px;
+    border-radius: 25px;
+    display: none;
