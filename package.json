@@ -4,7 +4,8 @@
   "description": "A webcam and image upload app that detects facial emotion using Parallel Dots AI API. Whatever emotion that is returned, the Napster API returns and displays the associated song. The site was styled using Materialize CSS framework and animated with jQuery UI. ---------------",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,10 @@
   },
   "homepage": "https://github.com/do-kevin/Mood-and-Music#readme",
   "dependencies": {
+    "gulp": "^4.0.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-minify": "^3.1.0",
     "stylus": "^0.54.5"
   }
 }
