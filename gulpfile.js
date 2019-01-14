@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var minify = require('gulp-minify');
 var htmlmin = require('gulp-htmlmin');
 
+// Run 'gulp build' to create production build
+
 gulp.task('build', async function() {
     gulp.src('./*.html')
         .pipe(htmlmin({
@@ -20,3 +22,5 @@ gulp.task('build', async function() {
     gulp.src('./assets/css/*.css')
         .pipe(gulp.dest('build/assets/css'));
 });
+
+// Then git checkout to gh-pages and run 'git checkout master -- build' 
