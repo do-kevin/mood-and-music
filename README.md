@@ -24,5 +24,7 @@ You can also examine the workflow that lead to the completion of this project: [
 - [Parallel Dots AI API](https://www.paralleldots.com/)
 - [Napster API](https://developer.napster.com/)
 - [jQuery UI](https://jqueryui.com/)
+- [Stylus](http://stylus-lang.com/)
+- [Gulp](https://gulpjs.com/)
 
 --------------
