@@ -1,0 +1,43 @@
+{
+    "name": "mood-and-music",
+    "version": "0.0.0",
+    "description": "",
+    "directories": {
+        "doc": "docs",
+        "src": "src",
+        "client": "client",
+        "prisma": "prisma"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/do-kevin/mood-and-music.git"
+    },
+    "keywords": [],
+    "author": "Kevin Do",
+    "bugs": {
+        "url": "https://github.com/do-kevin/mood-and-music/issues"
+    },
+    "homepage": "https://github.com/do-kevin/mood-and-music#readme",
+    "dependencies": {
+        "@graphql-tools/schema": "^7.1.5",
+        "@prisma/client": "^2.26.0",
+        "apollo-server": "^2.25.2",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "graphql": "^15.5.1",
+        "prisma": "^2.26.0",
+        "ts-node": "^10.0.0",
+        "typescript": "^4.3.4"
+    },
+    "devDependencies": {
+        "@types/body-parser": "^1.19.0",
+        "@types/express": "^4.17.12",
+        "@types/node": "^15.12.5",
+        "@typescript-eslint/eslint-plugin": "^4.28.0",
+        "@typescript-eslint/parser": "^4.28.0",
+        "eslint": "^7.29.0"
+    }
+}
